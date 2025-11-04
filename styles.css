@@ -54,24 +54,6 @@ a { color: inherit; text-decoration: none; }
 
 .main-nav a:hover { background: rgba(0,0,0,0.05); }
 
-/* Inline SVG coffee pots */
-.coffee-pot { position: absolute; top: 2px; width: 110px; height: 80px; pointer-events: none; z-index: 1; }
-.coffee-pot.left { left: 8px; animation: potTiltLeft 6s ease-in-out infinite; transform-origin: 35px 28px; }
-.coffee-pot.right { right: 8px; animation: potTiltRight 6s ease-in-out infinite; transform-origin: calc(100% - 35px) 28px; }
-@keyframes potTiltLeft { 0%,100% { transform: rotate(-16deg); } 50% { transform: rotate(-22deg); } }
-@keyframes potTiltRight { 0%,100% { transform: rotate(16deg); } 50% { transform: rotate(22deg); } }
-
-/* Coffee Pot Canvases in Header */
-.coffee-pot-canvas {
-  position: absolute;
-  top: 0;
-  width: 120px;
-  height: 100%;
-  pointer-events: none;
-  z-index: 1;
-}
-.coffee-pot-canvas.left { left: 0; }
-.coffee-pot-canvas.right { right: 0; }
 
 .btn {
   display: inline-block;
@@ -152,6 +134,16 @@ a { color: inherit; text-decoration: none; }
 
 .about .about-text p { font-size: 1.05rem; }
 
+/* About media */
+.about-media img,
+.about-media video {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  max-height: 400px;
+}
+
 /* Menu Cards */
 .menu .cards {
   margin-top: 18px;
@@ -177,99 +169,223 @@ a { color: inherit; text-decoration: none; }
 /* Contact */
 .contact .address, .contact .phone, .contact .hours { margin: 6px 0; }
 .cta-row { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px; }
+.contact-media { position: relative; width: 100%; }
+.contact-media iframe { display: block; }
+
+/* Local SEO Section */
+.local {
+  background: #f4ede2;
+  border-top: 1px solid rgba(0,0,0,0.05);
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+.local-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: clamp(24px, 4vw, 40px);
+  align-items: start;
+}
+.local-list {
+  list-style: none;
+  padding: 0;
+  margin: 18px 0 0 0;
+}
+.local-list li {
+  margin-bottom: 12px;
+  padding-left: 26px;
+  position: relative;
+  font-size: 1rem;
+}
+.local-list li::before {
+  content: "✦";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--coffee);
+}
+.local-cards {
+  display: grid;
+  gap: 16px;
+}
+.local-cards article {
+  background: #fff9f3;
+  border-radius: 14px;
+  padding: 18px 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+  border: 1px solid rgba(0,0,0,0.04);
+}
+.local-cards h4 {
+  margin: 0 0 8px 0;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.25rem;
+  color: var(--coffee);
+}
+.local-map {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.local-map h3 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--coffee);
+}
+
+.local-map iframe {
+  border-radius: 14px;
+  box-shadow: 0 12px 36px rgba(0,0,0,0.15);
+  width: 100%;
+  height: 375px;
+}
+
+/* FAQ Section */
+.faq {
+  background: #fff;
+}
+.faq-grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+.faq details {
+  background: #f9f4ec;
+  border-radius: 14px;
+  padding: 16px 20px;
+  border: 1px solid rgba(0,0,0,0.05);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.04);
+}
+.faq summary {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2rem;
+  color: var(--coffee);
+  cursor: pointer;
+}
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after {
+  content: '+';
+  float: right;
+  font-weight: 600;
+}
+.faq details[open] summary::after {
+  content: '–';
+}
+.faq details p {
+  margin: 12px 0 0 0;
+  line-height: 1.7;
+}
+
+/* Local SEO Section */
+.local {
+  background: #f4ede2;
+  border-top: 1px solid rgba(0,0,0,0.05);
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+.local-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: clamp(24px, 4vw, 40px);
+  align-items: start;
+}
+.local-list {
+  list-style: none;
+  padding: 0;
+  margin: 18px 0 0 0;
+}
+.local-list li {
+  margin-bottom: 12px;
+  padding-left: 26px;
+  position: relative;
+  font-size: 1rem;
+}
+.local-list li::before {
+  content: "✦";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--coffee);
+}
+.local-cards {
+  display: grid;
+  gap: 16px;
+}
+.local-cards article {
+  background: #fff9f3;
+  border-radius: 14px;
+  padding: 18px 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+  border: 1px solid rgba(0,0,0,0.04);
+}
+.local-cards h4 {
+  margin: 0 0 8px 0;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.25rem;
+  color: var(--coffee);
+}
+.local-map {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.local-map h3 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--coffee);
+}
+
+.local-map iframe {
+  border-radius: 14px;
+  box-shadow: 0 12px 36px rgba(0,0,0,0.15);
+  width: 100%;
+  height: 375px;
+}
+
+/* FAQ Section */
+.faq {
+  background: #fff;
+}
+.faq-grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+.faq details {
+  background: #f9f4ec;
+  border-radius: 14px;
+  padding: 16px 20px;
+  border: 1px solid rgba(0,0,0,0.05);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.04);
+}
+.faq summary {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2rem;
+  color: var(--coffee);
+  cursor: pointer;
+}
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after {
+  content: '+';
+  float: right;
+  font-weight: 600;
+}
+.faq details[open] summary::after {
+  content: '–';
+}
+.faq details p {
+  margin: 12px 0 0 0;
+  line-height: 1.7;
+}
 
 /* Footer */
 .site-footer { border-top: 1px solid rgba(0,0,0,0.06); padding: 28px 0; background: #fff; }
 .footer-inner { text-align: center; color: #555; font-size: 0.95rem; }
 
-/* Silky Coffee Pour Canvas */
-#coffee-spill {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 100%;
-  width: 100%;
-  z-index: 1;
-  pointer-events: none;
-  opacity: 0.75;
-}
-
 /* Parallax subtle effect for hero on scroll */
 .parallax { will-change: transform; }
-
-/* CSS-based silky spill overlay */
-#coffee-spill-css { position: absolute; inset: 0; z-index: 1; pointer-events: none; }
-
-/* Main blob flowing downward (clip-path polygon anim) */
-.spill-blob {
-  position: absolute;
-  top: -10vh;
-  left: 0;
-  width: 100%;
-  height: 80vh;
-  background: radial-gradient(120% 80% at 50% 0%, rgba(184, 115, 51, 0.35), rgba(111, 78, 55, 0.85) 35%, rgba(111, 78, 55, 0.95) 60%, rgba(70, 45, 33, 0.9) 100%);
-  clip-path: polygon(0% 0%, 100% 0%, 100% 8%, 85% 10%, 70% 14%, 58% 12%, 45% 18%, 35% 16%, 22% 20%, 10% 14%, 0% 16%);
-  animation: spillDown 14s ease-in-out infinite;
-  mix-blend-mode: multiply;
-}
-@keyframes spillDown {
-  0% {
-    transform: translateY(0);
-    clip-path: polygon(0% 0%, 100% 0%, 100% 8%, 85% 10%, 70% 14%, 58% 12%, 45% 18%, 35% 16%, 22% 20%, 10% 14%, 0% 16%);
-  }
-  33% {
-    transform: translateY(4vh);
-    clip-path: polygon(0% 0%, 100% 0%, 100% 10%, 86% 12%, 71% 16%, 57% 14%, 44% 20%, 33% 18%, 20% 24%, 9% 18%, 0% 20%);
-  }
-  66% {
-    transform: translateY(9vh);
-    clip-path: polygon(0% 0%, 100% 0%, 100% 12%, 87% 14%, 72% 18%, 59% 16%, 46% 22%, 36% 20%, 23% 26%, 11% 20%, 0% 22%);
-  }
-  100% {
-    transform: translateY(14vh);
-    clip-path: polygon(0% 0%, 100% 0%, 100% 14%, 88% 16%, 73% 20%, 60% 18%, 47% 24%, 37% 22%, 24% 28%, 12% 22%, 0% 24%);
-  }
-}
-
-/* Side streams originating near pots */
-.spill-stream {
-  position: absolute;
-  top: 6vh;
-  width: 7vw;
-  height: 100%;
-  background: linear-gradient(to right, rgba(111,78,55,0.2), rgba(111,78,55,0.9), rgba(111,78,55,0.2));
-  filter: blur(0.2px);
-  mix-blend-mode: multiply;
-  opacity: 0.8;
-}
-.spill-stream.left { left: 0; clip-path: polygon(0% 0%, 60% 2%, 80% 8%, 70% 16%, 75% 28%, 70% 38%, 65% 52%, 70% 64%, 66% 78%, 60% 100%, 0% 100%); animation: streamSwayL 8s ease-in-out infinite; }
-.spill-stream.right { right: 0; clip-path: polygon(40% 2%, 100% 0%, 100% 100%, 40% 100%, 45% 78%, 39% 64%, 45% 52%, 40% 38%, 45% 28%, 40% 16%, 20% 8%); animation: streamSwayR 8s ease-in-out infinite; }
-@keyframes streamSwayL { 0%,100% { transform: translateX(0); } 50% { transform: translateX(0.6vw); } }
-@keyframes streamSwayR { 0%,100% { transform: translateX(0); } 50% { transform: translateX(-0.6vw); } }
-
-/* Small drips near the bottom of hero */
-.spill-drips { position: absolute; bottom: 4vh; left: 0; width: 100%; height: 10vh; overflow: visible; }
-.spill-drips span {
-  position: absolute;
-  bottom: 0;
-  width: 10px; height: 10px;
-  border-radius: 50%;
-  background: radial-gradient(circle at 30% 30%, rgba(184,115,51,0.8), rgba(111,78,55,0.95));
-  opacity: 0;
-  animation: drip 3.6s ease-in infinite;
-}
-.spill-drips span:nth-child(1) { left: 5%;  animation-delay: .4s; }
-.spill-drips span:nth-child(2) { left: 11%; animation-delay: 1.2s; }
-.spill-drips span:nth-child(3) { left: 88%; animation-delay: .8s; }
-.spill-drips span:nth-child(4) { left: 93%; animation-delay: 1.6s; }
-.spill-drips span:nth-child(5) { left: 50%; animation-delay: 2.2s; }
-@keyframes drip {
-  0% { transform: translateY(0) scale(0.8); opacity: 0; }
-  20% { opacity: 1; }
-  80% { opacity: 1; }
-  100% { transform: translateY(14vh) scale(1); opacity: 0; }
-}
 
 /* Responsive */
 @media (max-width: 1200px) {
