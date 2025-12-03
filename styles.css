@@ -380,6 +380,47 @@ a { color: inherit; text-decoration: none; }
   line-height: 1.7;
 }
 
+/* Directions Buttons */
+.directions-cta {
+  margin: 16px 0;
+}
+.directions-buttons {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+.directions-icon {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  border-radius: 8px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+}
+.directions-icon:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* Social Media Buttons */
+.social-buttons {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+.social-icon {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  border-radius: 8px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+}
+.social-icon:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
 /* Footer */
 .site-footer { border-top: 1px solid rgba(0,0,0,0.06); padding: 28px 0; background: #fff; }
 .footer-inner { text-align: center; color: #555; font-size: 0.95rem; }
