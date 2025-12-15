@@ -269,6 +269,18 @@ html {
   margin-bottom: 4px;
 }
 
+.drink-prices {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(0.8rem, 1.6vw, 0.95rem);
+  color: var(--charcoal);
+  font-weight: 600;
+  white-space: nowrap;
+  margin-bottom: 4px;
+  padding: 4px 12px;
+  background: rgba(111, 78, 55, 0.08);
+  border-radius: 20px;
+}
+
 .drink-season {
   font-family: 'Inter', sans-serif;
   font-size: clamp(0.8rem, 1.6vw, 0.9rem);
@@ -349,6 +361,13 @@ html {
   }
   
   .drink-card .drink-sizes {
+    height: 1.5em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .drink-card .drink-prices {
     height: 1.5em;
     display: flex;
     align-items: center;
