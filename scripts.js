@@ -16,6 +16,30 @@
   window.addEventListener('scroll', onScrollParallax, { passive: true });
   onScrollParallax();
 
+  // Back to Top Button
+  const backToTopBtn = document.querySelector('.back-to-top');
+  if (backToTopBtn) {
+    // Show/hide button based on scroll position
+    function toggleBackToTop() {
+      if (window.scrollY > 400) {
+        backToTopBtn.classList.add('visible');
+      } else {
+        backToTopBtn.classList.remove('visible');
+      }
+    }
+    
+    window.addEventListener('scroll', toggleBackToTop, { passive: true });
+    toggleBackToTop();
+    
+    // Scroll to top on click
+    backToTopBtn.addEventListener('click', function() {
+      window.scrollTo({
+        top: 0,
+        behavior: prefersReduced ? 'auto' : 'smooth'
+      });
+    });
+  }
+
   // Optional: very lightweight random drip duplicates without heavy DOM churn
   if (!prefersReduced) {
     const spill = document.getElementById('coffee-spill-css');

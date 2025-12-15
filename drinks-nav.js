@@ -1,9 +1,21 @@
 (function() {
   'use strict';
 
+  // Toast online ordering URL
+  const ORDER_URL = 'https://order.toasttab.com/online/sips-cafe';
+
   // Get all category sections and nav links
   const sections = document.querySelectorAll('.drink-category');
   const navLinks = document.querySelectorAll('.category-nav-link');
+
+  // Make all drink cards clickable to order online
+  const drinkCards = document.querySelectorAll('.drink-card');
+  drinkCards.forEach(card => {
+    card.style.cursor = 'pointer';
+    card.addEventListener('click', function() {
+      window.open(ORDER_URL, '_blank', 'noopener,noreferrer');
+    });
+  });
 
   // Function to update active nav link based on scroll position
   function updateActiveLink() {
