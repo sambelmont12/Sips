@@ -24,7 +24,7 @@ html {
 .drinks-hero {
   color: var(--cream);
   text-align: center;
-  padding: clamp(60px, 12vw, 100px) 0 clamp(50px, 10vw, 80px);
+  padding: clamp(120px, 15vw, 160px) 0 clamp(50px, 10vw, 80px);
   position: relative;
   overflow: hidden;
   min-height: 400px;

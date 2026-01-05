@@ -5,6 +5,26 @@
   const yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear().toString();
 
+  // Header scroll effect (transparent → solid) - only on homepage with hero
+  const header = document.querySelector('.site-header');
+  const heroImage = document.querySelector('.hero-image');
+  
+  if (header && heroImage) {
+    // Homepage with hero image: transparent header that becomes solid on scroll
+    function onScrollHeader() {
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    }
+    window.addEventListener('scroll', onScrollHeader, { passive: true });
+    onScrollHeader();
+  } else if (header) {
+    // Other pages: always solid header
+    header.classList.add('scrolled');
+  }
+
   // Parallax hero effect (very lightweight)
   const heroMedia = document.querySelector('.hero-media');
   function onScrollParallax() {
