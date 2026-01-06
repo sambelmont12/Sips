@@ -36,6 +36,23 @@
   window.addEventListener('scroll', onScrollParallax, { passive: true });
   onScrollParallax();
 
+  // Smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const targetId = this.getAttribute('href');
+      if (targetId === '#') return;
+      
+      const targetElement = document.querySelector(targetId);
+      if (targetElement) {
+        e.preventDefault();
+        targetElement.scrollIntoView({
+          behavior: prefersReduced ? 'auto' : 'smooth',
+          block: 'start'
+        });
+      }
+    });
+  });
+
   // Back to Top Button
   const backToTopBtn = document.querySelector('.back-to-top');
   if (backToTopBtn) {
