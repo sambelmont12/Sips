@@ -36,6 +36,18 @@
   window.addEventListener('scroll', onScrollParallax, { passive: true });
   onScrollParallax();
 
+  // Coffee beans parallax background effect
+  const parallaxBeans = document.querySelector('.parallax-beans');
+  if (parallaxBeans && !prefersReduced) {
+    function onScrollBeans() {
+      const scrolled = window.scrollY;
+      // Beans move WITH content but slower (negative = same direction as scroll)
+      parallaxBeans.style.transform = `translateY(${scrolled * -0.2}px)`;
+    }
+    window.addEventListener('scroll', onScrollBeans, { passive: true });
+    onScrollBeans();
+  }
+
   // Smooth scroll for anchor links
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
@@ -52,6 +64,25 @@
       }
     });
   });
+
+  // Fade-up animation on scroll using Intersection Observer
+  const fadeUpElements = document.querySelectorAll('.fade-up');
+  if (fadeUpElements.length > 0) {
+    const fadeObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          // Optionally stop observing once visible (performance optimization)
+          fadeObserver.unobserve(entry.target);
+        }
+      });
+    }, { 
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px' // Trigger slightly before element is fully in view
+    });
+
+    fadeUpElements.forEach(el => fadeObserver.observe(el));
+  }
 
   // Back to Top Button
   const backToTopBtn = document.querySelector('.back-to-top');
